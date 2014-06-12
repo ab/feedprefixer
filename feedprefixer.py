@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import sys
 import time
 
 import tweepy
@@ -208,7 +209,9 @@ def is_replaceable(word):
     else:
         return False
 
+if __name__ == '__main__':
+    if sys.argv[1] == 'run':
+        fp = FeedPrefixer('nytminuscontext', 'cyber_nyt',
+                          os.path.join(__location__, 'state.json'))
+        fp.run_once()
 
-
-DEFAULT_FEEDPREFIXER = FeedPrefixer('nytminuscontext', 'cyber_nyt',
-                                    os.path.join(__location__, 'state.json'))
