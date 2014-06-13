@@ -209,9 +209,17 @@ def is_replaceable(word):
     else:
         return False
 
+def main():
+    fp = FeedPrefixer('nytminuscontext', 'cyber_nyt',
+                      os.path.join(__location__, 'state.json'))
+    fp.run_once()
+
+
 if __name__ == '__main__':
     if sys.argv[1] == 'run':
-        fp = FeedPrefixer('nytminuscontext', 'cyber_nyt',
-                          os.path.join(__location__, 'state.json'))
-        fp.run_once()
+        DRY_RUN = False
+        main()
+    elif sys.argv[1] == 'dryrun':
+        DRY_RUN = True
+        main()
 
