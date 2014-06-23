@@ -15,11 +15,11 @@ from topia.termextract import tag
 
 import secrets
 
-# format=('%(asctime)s.%(msecs)d [%(process)d] ' +
+# format=('%(asctime)s.%(msecs)03d [%(process)d] ' +
 #         '%(levelname)s -- %(name)s: %(message)s'),
 
 logging.basicConfig(level=logging.INFO,
-                    format=('%(asctime)s.%(msecs)d [%(process)d] ' +
+                    format=('%(asctime)s.%(msecs)03d [%(process)d] ' +
                             '%(levelname)s: %(message)s'),
                     datefmt='%Y-%m-%d %H:%M:%S')
 
