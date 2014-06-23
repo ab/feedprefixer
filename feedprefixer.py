@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+
+"""
+Usage: feedprefixer.py [run|dryrun]
+"""
+
 import json
 import logging
 import os
@@ -214,8 +220,14 @@ def main():
                       os.path.join(__location__, 'state.json'))
     fp.run_once()
 
+def usage():
+    sys.stderr.write(__doc__.lstrip())
 
 if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        usage()
+        sys.exit(1)
+
     if sys.argv[1] == 'run':
         DRY_RUN = False
         main()
