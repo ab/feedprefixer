@@ -15,8 +15,18 @@ from topia.termextract import tag
 
 import secrets
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger(__name__)
+# format=('%(asctime)s.%(msecs)d [%(process)d] ' +
+#         '%(levelname)s -- %(name)s: %(message)s'),
+
+logging.basicConfig(level=logging.INFO,
+                    format=('%(asctime)s.%(msecs)d [%(process)d] ' +
+                            '%(levelname)s: %(message)s'),
+                    datefmt='%Y-%m-%d %H:%M:%S')
+
+if __name__ == '__main__':
+    log = logging.getLogger(os.path.basename(__file__))
+else:
+    log = logging.getLogger(__name__)
 
 tagger = tag.Tagger()
 tagger.initialize()
